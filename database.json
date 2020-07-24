@@ -1,0 +1,7 @@
+{
+    "host": "iwhead.cyj7x4auwsvg.us-east-1.rds.amazonaws.com",
+    "user": "admin",
+    "password": "asdqwe123",
+    "port": "3306",
+    "database": "donation"
+  }

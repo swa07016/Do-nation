@@ -43,11 +43,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/api/datas", (req, res) => {
+
     const excelFile = xlsx.readFile( "name.xlsx" );
     const sheetName = excelFile.SheetNames[0];          
     const firstSheet = excelFile.Sheets[sheetName];   
     const jsonData = xlsx.utils.sheet_to_json( firstSheet, { defval : "" } );
     res.send(jsonData);
 });
+
+app.post('/api/general_donation_data', (req, res) => {
+    console.log(req.body);
+    res.send({'aa':'aa'});
+})
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
