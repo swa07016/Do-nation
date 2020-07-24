@@ -5,7 +5,7 @@ import { InputGroup, InputGroupAddon, TabContent, TabPane, Nav, NavItem, NavLink
 const Donation = (props) => {
 
     const [activeTab, setActiveTab] = useState('1');
-    const [id, setId] = useState(1);
+    const [recordId, setRecordId] = useState(1);
     const [donatorName, setDonatorName] = useState(null);
     const [donatedMoney, setDonatedMoney] = useState(0);
     const [phone, setPhone] = useState('');
@@ -18,7 +18,7 @@ const Donation = (props) => {
     }
 
     const donateApi = (info) => {
-        return fetch('/api/general_donation_data', {
+        return fetch('/api/general_donation_records', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -46,11 +46,12 @@ const Donation = (props) => {
     const submitHandler = async () => {
         if(donatorName && donatedMoney && phone && authNum ) {
             const response = await donateApi({
-                id,
+                recordId, //id로 추후에 교체
                 donatorName,
                 donatedMoney,
-                donationTime:getToday()
+                donationTime: getToday()
             });
+            console.log(response);
             alert('결제가 완료되었습니다');
         }
         else {
@@ -261,7 +262,7 @@ const Donation = (props) => {
                                     <Label>기부금액</Label>
                                     <Input 
                                     value={donatedMoney}
-                                    onChange={(e)=>setDonatedMoney(e.target.value)}
+                                    onChange={(e)=>setDonatedMoney(Number(e.target.value))}
                                     required  size="lg" type="money" placeholder="금액을 입력하세요."/> 
                                     <hr/>
                                     <Label>기관에게 한마디</Label>

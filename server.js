@@ -42,18 +42,87 @@ handleDisconnect();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get("/api/datas", (req, res) => {
-
-    const excelFile = xlsx.readFile( "name.xlsx" );
-    const sheetName = excelFile.SheetNames[0];          
-    const firstSheet = excelFile.Sheets[sheetName];   
-    const jsonData = xlsx.utils.sheet_to_json( firstSheet, { defval : "" } );
-    res.send(jsonData);
+app.get("/api/general_donation_data", (req, res) => {
+  const sql_getData = `SELECT * FROM G_Donation;`;
+  connection.query(sql_getData, (err, rows, fields) => {
+    if (rows.length) {
+      return console.log(rows);
+    }else{
+      console.log("No data");
+    }
+  });
 });
 
-app.post('/api/general_donation_data', (req, res) => {
-    console.log(req.body);
-    res.send({'aa':'aa'});
-})
+app.post("/api/general_donation_data", (req, res) => {
+  const data = req.body;
+  const sql =
+    "INSERT INTO G_Donation(title,author,registerTime,content,goal) VALUES(?,?,?,?,?,?);";
+
+  // const params = [
+  //   data.title,
+  //   data.author,
+  //   data.registerTime,
+  //   data.content,
+  //   data.goal
+  // ];
+  const params = [
+    "123",
+    "하와와",
+    "",
+    data.content,
+    data.goal
+  ];
+  connection.query(sql, params, (err, rows, fields) => {
+    if (err) {
+      res.send({
+        code: 400,
+        message: "error",
+      });
+    } else {
+      res.send({
+        code: 200,
+        message: "success",
+      });
+    }
+  });
+});
+
+app.get("/api/general_donation_records", (req, res) => {
+  const donationId = 1; //req.body.id; 로 교체
+  let sql_usercheck = `SELECT * FROM GD_Record WHERE id = ${donationId};`;
+  connection.query(sql_usercheck, (err, rows, fields) => {
+    if (rows.length) {
+      return res.send(rows);
+    }else{
+      console.log("No data");
+    }
+  });
+});
+
+app.post("/api/general_donation_records", (req, res) => {
+  const data = req.body;
+  const sql =
+    "INSERT INTO GD_Record(recordId,donatorName,donatedMoney,donationTime) VALUES(?,?,?,?);";
+  const params = [
+    data.recordId,
+    data.donatorName,
+    data.donatedMoney,
+    data.donationTime,
+  ];
+  console.log(params);
+  connection.query(sql, params, (err, rows, fields) => {
+    if (err) {
+      res.send({
+        code: 400,
+        message: "error",
+      });
+    } else {
+      res.send({
+        code: 200,
+        message: "success",
+      });
+    }
+  });
+});
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
