@@ -8,6 +8,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/api/datas", (req, res) => {
+
     const excelFile = xlsx.readFile( "name.xlsx" );
     const sheetName = excelFile.SheetNames[0];          
     const firstSheet = excelFile.Sheets[sheetName];   
