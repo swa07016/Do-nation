@@ -10,11 +10,10 @@
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script>
         jQuery(document).ready(function($) {
-        
-                $(".scroll").click(function(event){            
-                        event.preventDefault();
-                        $('html,body').animate({scrollTop:$(this.hash).offset().top}, 600);
-                });
+            $(".scroll").click(function(event){            
+                    event.preventDefault();
+                    $('html,body').animate({scrollTop:$(this.hash).offset().top}, 600);
+            });
         });
     </script>
 	<!-- CSS here -->
@@ -155,7 +154,7 @@
     
     <!-- Services Area End -->
     <!--? About Law Start-->
-    <section class="about-low-area section-padding2" style="margin-top:5rem">
+    <section class="about-low-area section-padding2" style="margin-top:3rem">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-10">
@@ -186,7 +185,7 @@
     <!-- About Law End-->
     <!-- Our Cases Start -->
     <div id="donate-start"></div>
-    <div class="our-cases-area section-padding30" style="margin-top: 5rem;">
+    <div class="our-cases-area section-padding30" style="margin-top: 3rem;">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-6 col-lg-7 col-md-10 col-sm-10">
@@ -197,92 +196,15 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-cases mb-40">
-                        <div class="cases-img">
-                            <img src="assets/img/gallery/case1.png" alt="">
-                        </div>
-                        <div class="cases-caption">
-                            <h3><a href="#">Ensure Education For Every Poor Children</a></h3>
-                            <!-- Progress Bar -->
-                            <div class="single-skill mb-15">
-                                <div class="bar-progress">
-                                    <div id="bar1" class="barfiller">
-                                        <div class="tipWrap">
-                                            <span class="tip"></span>
-                                        </div>
-                                        <span class="fill" data-percentage="70"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- / progress -->
-                            <div class="prices d-flex justify-content-between">
-                                <p>Raised:<span> $20,000</span></p>
-                                <p>Goal:<span> $35,000</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-cases mb-40">
-                        <div class="cases-img">
-                            <img src="assets/img/gallery/case2.png" alt="">
-                        </div>
-                        <div class="cases-caption">
-                            <h3><a href="#">Providing Healthy Food For The Children</a></h3>
-                            <!-- Progress Bar -->
-                            <div class="single-skill mb-15">
-                                <div class="bar-progress">
-                                    <div id="bar2" class="barfiller">
-                                        <div class="tipWrap">
-                                            <span class="tip"></span>
-                                        </div>
-                                        <span class="fill" data-percentage="25"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- / progress -->
-                            <div class="prices d-flex justify-content-between">
-                                <p>Raised:<span> $20,000</span></p>
-                                <p>Goal:<span> $35,000</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-cases mb-40">
-                        <div class="cases-img">
-                            <img src="assets/img/gallery/case3.png" alt="">
-                        </div>
-                        <div class="cases-caption">
-                            <h3><a href="#">Supply Drinking Water For  The People</a></h3>
-                            <!-- Progress Bar -->
-                            <div class="single-skill mb-15">
-                                <div class="bar-progress">
-                                    <div id="bar3" class="barfiller">
-                                        <div class="tipWrap">
-                                            <span class="tip"></span>
-                                        </div>
-                                        <span class="fill" data-percentage="50"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- / progress -->
-                            <div class="prices d-flex justify-content-between">
-                                <p>Raised:<span> $20,000</span></p>
-                                <p>Goal:<span> $35,000</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div id="donate-list" class="row">
+                <!-- 기관기부 리스트들 -->
             </div>
         </div>
     </div>
     <!-- Our Cases End -->
     <!-- Featured_job_start -->
     <div id="covid-start"></div>
-    <section class="featured-job-area section-padding30 section-bg2" style="margin-top: 5rem;" data-background="assets/img/gallery/section_bg03.png">
+    <section class="featured-job-area section-padding30 section-bg2" style="margin-top: 3rem;" data-background="assets/img/gallery/section_bg03.png">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-7 col-lg-9 col-md-10 col-sm-12">
@@ -293,25 +215,8 @@
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-9 col-md-12">
-                    <!-- single-job-content -->
-                    <div class="single-job-items mb-30">
-                        <div class="job-items">
-                            <div class="company-img">
-                                <a href="#"><img src="assets/img/gallery/socialEvents1.png" alt=""></a>
-                            </div>
-                            <div class="job-tittle">
-                                <a href="#"><h4>Donation is Hope</h4></a>
-                                <ul>
-                                    <li><i class="far fa-clock"></i>8:30 - 9:30am</li>
-                                    <li><i class="fas fa-sort-amount-down"></i>18.01.2021</li>
-                                    <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div id="covid-list" class="row justify-content-center">
+                
                 <div class="col-lg-9 col-md-12">
                     <!-- single-job-content -->
                     <div class="single-job-items mb-30">
@@ -418,7 +323,7 @@
                             <div class="single-footer-caption mb-30">
                                 <div class="footer-tittle">
                                     <div class="footer-logo mb-20">
-                                        <a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
+                                        <a href="index.html"><span style="font-size: 30px; color: aliceblue; margin: 0; padding: 0; font-weight: bold;">Do-nation</span><span style="color: #2c5a8a; font-size: 30px; font-weight: bold;">.</span></a>
                                     </div>
                                 </div>
                             </div>
@@ -430,10 +335,10 @@
                                     <h4>Contact Info</h4>
                                     <ul>
                                         <li>
-                                            <p>Address :Your address goes here, your demo address.</p>
+                                            <p>Address : 경기도 용인시 기흥구 덕영대로 1732 경희대학교 국제캠퍼스</p>
                                         </li>
-                                        <li><a href="#">Phone : +8880 44338899</a></li>
-                                        <li><a href="#">Email : info@colorlib.com</a></li>
+                                        <li><a href="#">Phone : 010 7137 8664</a></li>
+                                        <li><a href="#">Email : swa07016@naver.com</a></li>
                                     </ul>
                                 </div>
 
@@ -444,11 +349,8 @@
                                 <div class="footer-tittle">
                                     <h4>Important Link</h4>
                                     <ul>
-                                        <li><a href="#"> View Project</a></li>
-                                        <li><a href="#">Contact Us</a></li>
-                                        <li><a href="#">Testimonial</a></li>
-                                        <li><a href="#">Proparties</a></li>
-                                        <li><a href="#">Support</a></li>
+                                        <li><a href="#donate-start" class="scroll">Donate</a></li>
+                                        <li><a href="#covid-start" class="scroll">Covid-19</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -456,12 +358,12 @@
                         <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
                             <div class="single-footer-caption mb-50">
                                 <div class="footer-tittle">
-                                    <h4>Newsletter</h4>
+                                    <h4>Developers</h4>
                                     <div class="footer-pera footer-pera2">
-                                    <p>Heaven fruitful doesn't over lesser in days. Appear creeping.</p>
+                                    <p>김대휘 문주은 이찬 정성훈</p>
                                 </div>
                                 <!-- Form -->
-                                <div class="footer-form" >
+                                <!-- <div class="footer-form" >
                                     <div id="mc_embed_signup">
                                         <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
                                         method="get" class="subscribe_form relative mail_part">
@@ -470,12 +372,12 @@
                                             onblur="this.placeholder = ' Email Address '">
                                             <div class="form-icon">
                                                 <button type="submit" name="submit" id="newsletter-submit"
-                                                class="email_icon newsletter-submit button-contactForm"><img src="assets/img/gallery/form.png" alt=""></button>
+                                                class="email_icon newsletter-submit button-contactForm" style="background-color: #2c5a8a"><img src="assets/img/gallery/form.png" alt=""></button>
                                             </div>
-                                            <div class="mt-10 info"></div>
+                                            <div class="mt-10 info" style="color: #2c5a8a"></div>
                                         </form>
                                     </div>
-                                </div>
+                                </div> -->
                                 </div>
                             </div>
                         </div>
@@ -490,14 +392,14 @@
                             <div class="col-xl-10 col-lg-9 ">
                                 <div class="footer-copy-right">
                                     <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This Website is made with <i class="fa fa-heart" aria-hidden="true" style="color: #2c5a8a"></i> by <a href="https://colorlib.com" target="_blank" style="color: #2c5a8a">Acrobat</a>
+    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                                 </div>
                             </div>
                             <div class="col-xl-2 col-lg-3">
                                 <div class="footer-social f-right">
                                     <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a  href="https://www.facebook.com/sai4ull"><i class="fab fa-facebook-f"></i></a>
+                                    <a  href="#"><i class="fab fa-facebook-f"></i></a>
                                     <a href="#"><i class="fas fa-globe"></i></a>
                                     <a href="#"><i class="fab fa-behance"></i></a>
                                 </div>
@@ -508,8 +410,13 @@
             </div>
         </div>
     </footer>
-    <div id="root"></div>
-    <div id="root2"></div>
+    <div id="root" style="display: none;"></div>
+    <div id="root2" style="display: none;"></div>
+    <!-- Scroll Up -->
+    <div id="back-top" >
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+    </footer>
     <!-- Scroll Up -->
     <div id="back-top" >
         <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
@@ -519,7 +426,7 @@
 
     <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
     <!-- Jquery, Popper, Bootstrap -->
-    <script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <!-- <script src="./assets/js/vendor/jquery-1.12.4.min.js"></script> -->
     <script src="./assets/js/popper.min.js"></script>
     <script src="./assets/js/bootstrap.min.js"></script>
     <!-- Jquery Mobile Menu -->

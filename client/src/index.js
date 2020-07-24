@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import Test from  './Test';
+import CList from './CList';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-ReactDOM.render(<Test />, document.getElementById('root2'));
+ReactDOM.render(<App />, document.getElementById('donate-list'));
+ReactDOM.render(<CList />, document.getElementById('covid-list'));
