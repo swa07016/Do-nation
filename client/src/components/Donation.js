@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Row, Col, Button, Progress, Modal, ModalHeader, ModalBody, ModalFooter, Table } from 'reactstrap';
+import { Row, Col, Button, Progress, Modal, ModalHeader, ModalBody, Container,Table } from 'reactstrap';
 import { TabContent, TabPane, Nav, NavItem, NavLink, Card, CardTitle, CardText} from 'reactstrap';
 const Donation = (props) => {
 
@@ -111,51 +111,57 @@ const Donation = (props) => {
                 </Col>
             </Row>
             </ModalBody>
-            <ModalFooter>
-                <Nav tabs>
-            <NavItem>
-            <NavLink
-                onClick={() => { toggleTab('1'); }}
-            >
-                Tab1
-            </NavLink>
-            </NavItem>
-            <NavItem>
-            <NavLink
-                onClick={() => { toggleTab('2'); }}
-            >
-                More Tabs
-            </NavLink>
-            </NavItem>
-        </Nav>
-        <TabContent activeTab={activeTab}>
-            <TabPane tabId="1">
-            <Row>
-                <Col sm="12">
-                <h4>Tab 1 Contents</h4>
-                </Col>
-            </Row>
-            </TabPane>
-            <TabPane tabId="2">
-            <Row>
-                <Col sm="6">
-                <Card body>
-                    <CardTitle>Special Title Treatment</CardTitle>
-                    <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-                    <Button>Go somewhere</Button>
-                </Card>
-                </Col>
-                <Col sm="6">
-                <Card body>
-                    <CardTitle>Special Title Treatment</CardTitle>
-                    <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-                    <Button>Go somewhere</Button>
-                </Card>
-                </Col>
-            </Row>
-            </TabPane>
-        </TabContent>
-            </ModalFooter>
+            <Container style={{
+                height:'35rem'
+            }}>
+            <hr style={{'marginTop':'0.5rem', marginBottom:'0.7rem'}}/>
+            <Nav tabs>
+                <NavItem>
+                <NavLink
+                    onClick={() => { toggleTab('1'); }}
+                >
+                    본인인증
+                </NavLink>
+                </NavItem>
+                <NavItem>
+                <NavLink
+                    onClick={() => { toggleTab('2'); }}
+                >
+                    기부정보
+                </NavLink>
+                </NavItem>
+                <NavItem>
+                <NavLink
+                    onClick={() => { toggleTab('3'); }}
+                >
+                    결제진행
+                </NavLink>
+                </NavItem>
+            </Nav>
+            <TabContent activeTab={activeTab}>
+                <TabPane tabId="1">
+                <Row>
+                    <Col sm="12">
+                    <h4>Tab 1 Contents</h4>
+                    </Col>
+                </Row>
+                </TabPane>
+                <TabPane tabId="2">
+                <Row>
+                    <Col sm="12">
+                    <h4>Tab 2 Contents</h4>
+                    </Col>
+                </Row>
+                </TabPane>
+                <TabPane tabId="3">
+                <Row>
+                    <Col sm="12">
+                    <h4>Tab 3 Contents</h4>
+                    </Col>
+                </Row>
+                </TabPane>
+            </TabContent>
+        </Container>
         </Modal>
       </>
     );
