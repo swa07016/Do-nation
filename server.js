@@ -16,4 +16,9 @@ app.get("/api/datas", (req, res) => {
     res.send(jsonData);
 });
 
+app.post('/api/general_donation_data', (req, res) => {
+    console.log(req.body);
+    res.send({'aa':'aa'});
+})
+
 app.listen(port, () => console.log(`Listening on port ${port}`));
