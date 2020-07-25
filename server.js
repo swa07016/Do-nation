@@ -59,7 +59,7 @@ app.get("/api/general_donation_data", (req, res) => {
 app.post("/api/general_donation_data", (req, res) => {
   const data = req.body;
   const sql =
-    "INSERT INTO G_Donation(title,author,registerTime,content,goal) VALUES(?,?,?,?,?,?);";
+    "INSERT INTO G_Donation(title,author,registerDate,content,goal) VALUES(?,?,?,?,?,?);";
 
   // const params = [
   //   data.title,
@@ -91,8 +91,8 @@ app.post("/api/general_donation_data", (req, res) => {
 });
 
 app.get("/api/general_donation_records", (req, res) => {
-  const donationId = 1; //req.body.id; 로 교체
-  let sql_usercheck = `SELECT * FROM GD_Record WHERE id = ${donationId};`;
+  const gr_Id = 1; //req.body.id; 로 교체예정
+  let sql_usercheck = `SELECT * FROM GD_Record WHERE gr_Id = ${gr_Id};`;
   connection.query(sql_usercheck, (err, rows, fields) => {
     if (rows.length) {
       return res.send(rows);
@@ -105,9 +105,10 @@ app.get("/api/general_donation_records", (req, res) => {
 app.post("/api/general_donation_records", (req, res) => {
   const data = req.body;
   const sql =
-    "INSERT INTO GD_Record(recordId,donatorName,donatedMoney,donationTime) VALUES(?,?,?,?);";
-  const params = [
-    data.recordId,
+    "INSERT INTO GD_Record(gr_Id,donatorName,donatedMoney,donationTime) VALUES(?,?,?,?);";
+  
+   const params = [
+    data.recordId, //이름바꾸기
     data.donatorName,
     data.donatedMoney,
     data.donationTime,
@@ -127,5 +128,45 @@ app.post("/api/general_donation_records", (req, res) => {
     }
   });
 });
+
+app.get("/api/corona_donation_records", (req, res) => {
+  const cr_Id = 1; //req.body.id; 로 교체예정
+  let sql_usercheck = `SELECT * FROM CD_Record WHERE cr_Id = ${cr_Id};`;
+  connection.query(sql_usercheck, (err, rows, fields) => {
+    if (rows.length) {
+      return res.send(rows);
+    }else{
+      console.log("No data");
+    }
+  });
+});
+
+app.post("/api/corona_donation_records", (req, res) => {
+  const data = req.body;
+  const sql =
+    "INSERT INTO CD_Record(cr_Id,donatorName,donatedMoney,donatedGoods,donationTime) VALUES(?,?,?,?,?);";
+  const params = [
+    data.cr_Id,
+    data.donatorName,
+    data.donatedMoney,
+    data.donatedGoods,
+    data.donationTime,
+  ];
+  console.log(params);
+  connection.query(sql, params, (err, rows, fields) => {
+    if (err) {
+      res.send({
+        code: 400,
+        message: "error",
+      });
+    } else {
+      res.send({
+        code: 200,
+        message: "success",
+      });
+    }
+  });
+});
+
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
