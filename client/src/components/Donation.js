@@ -65,14 +65,15 @@ const Donation = (props) => {
         <div className="col-lg-4 col-md-6 col-sm-6">
             <div className="single-cases mb-40">
                 <div className="cases-img">
-                    <img onClick={toggle} src="assets/img/gallery/서병.jpg" alt=""/>
+                    
+                    <img onClick={toggle} src={`assets/img/gallery/${props.title}.jpg`} alt=""/>
                 </div>
                 <div className="cases-caption">
                     <h3><a onClick={toggle}>{props.title}</a></h3>
                     <div className="single-skill mb-15">
                         <div className="bar-progress">
-                            <div className="text-center">50%</div>
-                            <Progress value={50} style={{backgroundColor : '#09CC78'}}/>
+                            <div className="text-center">{parseInt(props.raised/props.goal*100)}%</div>
+                            <Progress value={parseInt(props.raised/props.goal*100)} style={{backgroundColor : '#09CC78'}}/>
                         </div>
                     </div>
                     <div className="prices d-flex justify-content-between">
