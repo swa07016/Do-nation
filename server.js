@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const xlsx = require('xlsx');
+const xlsx = require("xlsx");
 const fs = require("fs");
 const mysql = require("mysql");
 
@@ -46,8 +46,8 @@ app.get("/api/general_donation_data", (req, res) => {
   const sql_getData = `SELECT * FROM G_Donation;`;
   connection.query(sql_getData, (err, rows, fields) => {
     if (rows.length) {
-      return console.log(rows);
-    }else{
+      return res.send(rows);
+    } else {
       console.log("No data");
     }
   });
@@ -59,7 +59,7 @@ app.get("/api/general_donation_records", (req, res) => {
   connection.query(sql, (err, rows, fields) => {
     if (rows.length) {
       return res.send(rows);
-    }else{
+    } else {
       console.log("No data");
     }
   });
@@ -67,9 +67,9 @@ app.get("/api/general_donation_records", (req, res) => {
 
 app.post("/api/general_donation_records", (req, res) => {
   const data = req.body;
-  
+
   const sql_post =
-  "INSERT INTO GD_Record(gr_Id,donatorName,donatedMoney,donationTime) VALUES(?,?,?,?);";
+    "INSERT INTO GD_Record(gr_Id,donatorName,donatedMoney,donationTime) VALUES(?,?,?,?);";
   const donatedMoney = data.donatedMoney;
   const params = [
     data.gr_Id,
@@ -78,7 +78,7 @@ app.post("/api/general_donation_records", (req, res) => {
     data.donationTime,
   ];
   console.log(params);
-  
+
   connection.query(sql_post, params, (err, rows, fields) => {
     if (err) {
       res.send({
@@ -86,25 +86,24 @@ app.post("/api/general_donation_records", (req, res) => {
         message: "error",
       });
     } else {
-      const sql_getRaised =`SELECT * FROM G_Donation WHERE id=${data.gr_Id};`;
+      const sql_getRaised = `SELECT * FROM G_Donation WHERE id=${data.gr_Id};`;
       connection.query(sql_getRaised, params, (err, rows, fields) => {
-        if(err){
+        if (err) {
           res.send({
             code: 401,
             message: "error",
           });
-        }else{
+        } else {
           console.log(rows[0]);
           const raisedMoney = rows[0].raised + donatedMoney;
-          const sql_updateRaised =`UPDATE G_Donation SET raised = ${raisedMoney} WHERE id=${data.gr_Id};`;
+          const sql_updateRaised = `UPDATE G_Donation SET raised = ${raisedMoney} WHERE id=${data.gr_Id};`;
           connection.query(sql_updateRaised, params, (err, rows, fields) => {
-            if(err){
+            if (err) {
               res.send({
                 code: 402,
                 message: "error",
               });
-            }else{
-
+            } else {
             }
           });
         }
@@ -123,7 +122,7 @@ app.get("/api/corona_donation_records", (req, res) => {
   connection.query(sql_usercheck, (err, rows, fields) => {
     if (rows.length) {
       return res.send(rows);
-    }else{
+    } else {
       console.log("No data");
     }
   });
@@ -156,6 +155,7 @@ app.post("/api/corona_donation_records", (req, res) => {
   });
 });
 
+<<<<<<< Updated upstream
 
 app.get("/api/datas", (req, res) => {
   //  June's api	    
@@ -168,3 +168,6 @@ app.get("/api/datas", (req, res) => {
 });	
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
+=======
+app.listen(port, () => console.log(`Listening on port ${port}`));
+>>>>>>> Stashed changes

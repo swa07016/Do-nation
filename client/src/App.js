@@ -1,23 +1,38 @@
-import React from 'react';
-import Donation from './components/Donation';
+import React, { useState, useEffect } from "react";
+import Donation from "./components/Donation";
 
 function App() {
+  const [DoLi,setDoLi] = useState([]);
+  useEffect(() => {
+    donatedApi().then((response) => {
+      setDoLi(response);
+      console.log(response);
+    });
+  });
+  
+  const donatedApi = async () => {
+    console.log(123);
+    const response = await fetch("/api/general_donation_data",{
+      method: "GET",
+      headers : { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+       }
+    });
+    const body = await response.json();
+
+    return body;
+  };
+
   return (
     <>
-    <Donation
-      title="강동 경희대학교 병원"
-      raised="100000"
-      goal="200000"
-    />
-    <Donation
-      title="강동 경희대학교 병원"
-      raised="100000"
-      goal="200000"
-    /><Donation
-      title="강동 경희대학교 병원"
-      raised="100000"
-      goal="200000"
-    />     
+    {
+      DoLi.map((data)=>{
+        return(
+          <Donation title={data.title} author={data.author} content={data.content} raised={data.raised} goal={data.goal} />
+        );
+      })
+    }
     </>
   );
 }

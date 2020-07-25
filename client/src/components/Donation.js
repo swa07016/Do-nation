@@ -65,7 +65,7 @@ const Donation = (props) => {
         <div className="col-lg-4 col-md-6 col-sm-6">
             <div className="single-cases mb-40">
                 <div className="cases-img">
-                    <img onClick={toggle} src="assets/img/gallery/case3.png" alt=""/>
+                    <img onClick={toggle} src="assets/img/gallery/서병.jpg" alt=""/>
                 </div>
                 <div className="cases-caption">
                     <h3><a onClick={toggle}>{props.title}</a></h3>
