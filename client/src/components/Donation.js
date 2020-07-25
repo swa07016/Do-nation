@@ -253,7 +253,7 @@ const Donation = (props) => {
                             }}>
                             <Row>
                                 <Col>
-                                기관 : 강동 경희대학교 병원
+                                기관 : {props.title}
                                 <hr/>
                                 <p>" 모두를 위한 모두의 참여 "</p>
                                 <hr/>

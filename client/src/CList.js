@@ -6,12 +6,12 @@ function CList() {
   return (
     <>
     <Covid
-      title="경희대학교 병원"
+      title="광진구 선별진료소"
       raised="100000"
       goal="200000"
     />
     <Covid
-      title="경희대학교 병원"
+      title="서면 선별진료소"
       raised="100000"
       goal="200000"
     />

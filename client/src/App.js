@@ -8,7 +8,7 @@ function App() {
       setDoLi(response);
       console.log(response);
     });
-  });
+  },[]);
   
   const donatedApi = async () => {
     console.log(123);
