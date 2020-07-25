@@ -11,7 +11,9 @@ const Donation = (props) => {
     const [phone, setPhone] = useState('');
     const [authNum, setAuthNum] = useState('');
     
-    // donationTime
+    function numberFormat(inputNumber) {
+        return inputNumber.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+     }
 
     const toggleTab = tab => {
       if(activeTab !== tab) setActiveTab(tab);
@@ -77,8 +79,8 @@ const Donation = (props) => {
                         </div>
                     </div>
                     <div className="prices d-flex justify-content-between">
-                        <p>Raised:<span> {props.raised}￦</span></p>
-                        <p>Goal:<span> {props.goal}￦</span></p>
+                        <p>Raised:<span> {numberFormat(props.raised)}￦</span></p>
+                        <p>Goal:<span> {numberFormat(props.goal)}￦</span></p>
                     </div>
                 </div>
             </div>
