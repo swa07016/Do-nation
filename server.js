@@ -157,4 +157,14 @@ app.post("/api/corona_donation_records", (req, res) => {
 });
 
 
+app.get("/api/datas", (req, res) => {
+  //  June's api	    
+  const excelFile = xlsx.readFile( "name.xlsx" );
+    
+  const sheetName = excelFile.SheetNames[0];          
+  const firstSheet = excelFile.Sheets[sheetName];   
+  const jsonData = xlsx.utils.sheet_to_json( firstSheet, { defval : "" } );
+  res.send(jsonData);
+});	
+
 app.listen(port, () => console.log(`Listening on port ${port}`));
