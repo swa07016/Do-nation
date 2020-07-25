@@ -53,47 +53,10 @@ app.get("/api/general_donation_data", (req, res) => {
   });
 });
 
-
-
-
-app.post("/api/general_donation_data", (req, res) => {
-  const data = req.body;
-  const sql =
-    "INSERT INTO G_Donation(title,author,registerDate,content,goal) VALUES(?,?,?,?,?,?);";
-
-  // const params = [
-  //   data.title,
-  //   data.author,
-  //   data.registerTime,
-  //   data.content,
-  //   data.goal
-  // ];
-  const params = [
-    "123",
-    "하와와",
-    "",
-    data.content,
-    data.goal
-  ];
-  connection.query(sql, params, (err, rows, fields) => {
-    if (err) {
-      res.send({
-        code: 400,
-        message: "error",
-      });
-    } else {
-      res.send({
-        code: 200,
-        message: "success",
-      });
-    }
-  });
-});
-
 app.get("/api/general_donation_records", (req, res) => {
-  const gr_Id = 1; //req.body.id; 로 교체예정
-  let sql_usercheck = `SELECT * FROM GD_Record WHERE gr_Id = ${gr_Id};`;
-  connection.query(sql_usercheck, (err, rows, fields) => {
+  const gr_Id = req.body.id;
+  const sql = `SELECT * FROM GD_Record WHERE gr_Id = ${gr_Id};`;
+  connection.query(sql, (err, rows, fields) => {
     if (rows.length) {
       return res.send(rows);
     }else{
@@ -104,23 +67,48 @@ app.get("/api/general_donation_records", (req, res) => {
 
 app.post("/api/general_donation_records", (req, res) => {
   const data = req.body;
-  const sql =
-    "INSERT INTO GD_Record(gr_Id,donatorName,donatedMoney,donationTime) VALUES(?,?,?,?);";
   
-   const params = [
-    data.recordId, //이름바꾸기
+  const sql_post =
+  "INSERT INTO GD_Record(gr_Id,donatorName,donatedMoney,donationTime) VALUES(?,?,?,?);";
+  const donatedMoney = data.donatedMoney;
+  const params = [
+    data.gr_Id,
     data.donatorName,
     data.donatedMoney,
     data.donationTime,
   ];
   console.log(params);
-  connection.query(sql, params, (err, rows, fields) => {
+  
+  connection.query(sql_post, params, (err, rows, fields) => {
     if (err) {
       res.send({
         code: 400,
         message: "error",
       });
     } else {
+      const sql_getRaised =`SELECT * FROM G_Donation WHERE id=${data.gr_Id};`;
+      connection.query(sql_getRaised, params, (err, rows, fields) => {
+        if(err){
+          res.send({
+            code: 401,
+            message: "error",
+          });
+        }else{
+          console.log(rows[0]);
+          const raisedMoney = rows[0].raised + donatedMoney;
+          const sql_updateRaised =`UPDATE G_Donation SET raised = ${raisedMoney} WHERE id=${data.gr_Id};`;
+          connection.query(sql_updateRaised, params, (err, rows, fields) => {
+            if(err){
+              res.send({
+                code: 402,
+                message: "error",
+              });
+            }else{
+
+            }
+          });
+        }
+      });
       res.send({
         code: 200,
         message: "success",
