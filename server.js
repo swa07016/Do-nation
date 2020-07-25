@@ -155,7 +155,6 @@ app.post("/api/corona_donation_records", (req, res) => {
   });
 });
 
-<<<<<<< Updated upstream
 
 app.get("/api/datas", (req, res) => {
   //  June's api	    
@@ -168,6 +167,3 @@ app.get("/api/datas", (req, res) => {
 });	
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
-=======
-app.listen(port, () => console.log(`Listening on port ${port}`));
->>>>>>> Stashed changes
