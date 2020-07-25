@@ -46,7 +46,7 @@ const Donation = (props) => {
     const submitHandler = async () => {
         if(donatorName && donatedMoney && phone && authNum ) {
             const response = await donateApi({
-                recordId, //id로 추후에 교체
+                gr_Id:recordId, //id로 추후에 교체
                 donatorName,
                 donatedMoney,
                 donationTime: getToday()
